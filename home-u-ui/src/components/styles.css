@@ -1,0 +1,377 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&family=Luckiest+Guy&family=Raleway:wght@800&family=Varela+Round&family=Poppins:wght@300;500&display=swap');
+
+:root {
+  --color-primary: #000;
+  --color-secondary: rgb(97, 97, 97);
+  --color-accent: rgb(9, 173, 223);
+}
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  color: #272727;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  background: rgb(240, 240, 240);
+  scroll-padding-top: 100px;
+
+}
+
+header {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.09);
+  margin-bottom: 100px;
+  background-color: rgba(255, 255, 255,0.95);
+}
+
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-btn {
+  padding: 10px 25px;
+  border: 1px solid;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #000;
+}
+
+.nav-btn:hover {
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0px 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li:hover {
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2.5rem;
+}
+
+h1 {
+  font-family: 'Raleway';
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.card-title h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 !important;
+}
+
+.card-details span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400px;
+  color: var(--color-secondary);
+  padding-left: 0.5rem;
+}
+
+nav a,
+button {
+  font-family: 'Varela Round';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 !important;
+}
+
+.cards-item {
+  display: flex;
+  padding: 1rem;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 200px;
+  min-height: 200px;
+  transition: transform .6s ease-in-out;
+
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+}
+
+.card-image:hover {
+  transform-origin: center center;
+  transition: transform .6s ease-in-out;
+  transform: scale(1.1);
+}
+
+.card-header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.operation-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.rent {
+  background-color: orange;
+}
+
+.sale {
+  background-color: rgb(38, 175, 61);
+}
+
+@media (min-width: 40rem) {
+  .cards-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards-item {
+    width: 33%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem 0.5rem 0.9rem 0.9rem;
+  box-shadow: 0 30px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-content {
+  padding-bottom: 1rem;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 1rem 0;
+  color: Black;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.card-text {
+}
+
+.made-by {
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 25px 0 25px;
+}
+
+.card-body h2 {
+  transition: 0.2s;
+}
+
+.card-body h2:hover {
+  transition: 0.2s;
+  color: var(--color-accent);
+}
+
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-details div {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.card-specs {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.card-specs div {
+  display: flex;
+  align-items: center;
+}
+
+
+.card-specs div > span {
+  padding: 0 .2rem 0 .2rem
+}
+
+.material-icons-outlined {
+  color: var(--color-accent)
+}
+
+.logo-md {
+  font-size: 30px;
+  transition: transform .2s ease-in-out;
+}
+
+.logo-md:hover {
+  transform-origin: center center;
+  transition: transform .2s ease-in-out;
+  transform: scale(1.1);
+
+}
+
+.logo-md-clicked{
+  color:red;
+  font-size: 30px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: var(--color-accent);
+
+}
+
+
+.search-container {
+  position: relative;
+  height: 600px;
+  background-color: var(--color-accent);
+}
+
+.search-body{
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  
+} 
+
+.search-body input{
+  height: 4rem;
+  width: 50vw;
+  border-style: none;
+  box-sizing: border-box;
+  padding:1rem;
+  border: 1px solid #272727;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 40rem) {
+  .search-body input{
+    width: 80vw;
+  }
+}
+
+.search-body ul{
+  background-color: white;
+  width: 100%;
+  list-style-type:none;
+  margin: 0;
+  padding: 0 0 0.5rem 0;
+  text-align: left;
+  border-radius: 0 0 10px 10px;
+}
+
+.search-body li{
+  display: flex;
+  flex-direction: row;
+  align-items:center ;
+  padding:0.5rem 1rem;
+  font-size: 1.2rem;
+  border-top: 1px solid;
+}
+
+
+
+
+
+.load-more {
+  padding-bottom: 2.5rem;;
+  height: 5rem;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.load-more button {
+  padding: 10px 35px;
+  border: 1px solid;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #000;
+}
+
+.load-more button:hover{
+  background-color: var(--color-accent);
+}

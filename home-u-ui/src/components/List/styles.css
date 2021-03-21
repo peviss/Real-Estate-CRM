@@ -1,0 +1,12 @@
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 !important;
+}

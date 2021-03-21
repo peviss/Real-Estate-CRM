@@ -1,0 +1,49 @@
+{
+    "properties": [
+        {
+            "title":"Mansion",
+            "address":"324th Avery Blvd.",
+            "price":"25000",
+            "beds":"6",
+            "sqf":"42300",
+            "operation":"Rent",
+            "img":"./assets/mansion.jpg"
+        },
+        {
+            "title":"Country",
+            "address":"4324th Llanfair Rd.",
+            "price":"5000000",
+            "beds":"4",
+            "sqf":"21200",
+            "operation":"Sale",
+            "img":"./assets/countryjpg"
+        },
+        {
+            "title":"Mansion",
+            "address":"324th Avery Blvd.",
+            "price":"25000",
+            "beds":"6",
+            "sqf":"42300",
+            "operation":"Rent",
+            "img":"./assets/mansion.jpg"
+        },
+        {
+            "title":"Mansion",
+            "address":"324th Avery Blvd.",
+            "price":"25000",
+            "beds":"6",
+            "sqf":"42300",
+            "operation":"Rent",
+            "img":"./assets/mansion.jpg"
+        },
+        {
+            "title":"Mansion",
+            "address":"324th Avery Blvd.",
+            "price":"25000",
+            "beds":"6",
+            "sqf":"42300",
+            "operation":"Rent",
+            "img":"./assets/mansion.jpg"
+        }
+    ]
+}
