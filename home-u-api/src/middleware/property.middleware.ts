@@ -39,7 +39,8 @@ class PropertyMiddleware {
     async checkParameters(req: express.Request, res: express.Response, next: express.NextFunction) {
         // set validations array 
         const validations: ValidationChain[] = [
-            query('type').optional().isAlpha()
+            query('price.price.$gte').isNumeric().withMessage('should be numeric'),
+            query('type').optional().isAlphanumeric()
                 .withMessage('should be alpha'),
             query('rent').optional().isBoolean()
                 .withMessage('should be boolean').customSanitizer(() => {
@@ -70,8 +71,9 @@ class PropertyMiddleware {
                 .withMessage('should be numeric').customSanitizer(() => {
                     sanitizeBaths(req)
                 }),
-            query('city').optional().isAlpha()
-                .withMessage('should be alpha').customSanitizer(() => {
+            query('city').optional()
+                //.withMessage('should be alpha')
+                .customSanitizer(() => {
                     sanitizeCity(req)
                 }),
             query('zone').optional().isAlpha()

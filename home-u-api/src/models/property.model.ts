@@ -1,4 +1,4 @@
-import {Document} from 'mongoose'
+import { Document } from 'mongoose'
 
 export default interface IProperty extends Document {
     //id: string;
@@ -9,7 +9,7 @@ export default interface IProperty extends Document {
     amenities?: Amenities;
     price: Price;
     images?: ImageData;
-    state: State; 
+    state: State;
     creationInfo?: CreationInfo;
 }
 
@@ -76,9 +76,9 @@ export interface CreationInfo {
 
 }
 
-/* 
+/*
 export default interface IProperty {
-   
+
     ref: string;
     location: {
         address: {
@@ -102,7 +102,7 @@ export default interface IProperty {
         sale: boolean;
         auction: boolean;
         vacational: boolean;
-    
+
     };
     type: string;
     amenities: {

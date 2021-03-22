@@ -1,5 +1,4 @@
-import express, { Router, Request, Response, NextFunction } from 'express'
-import { check, query, validationResult } from 'express-validator'
+import express from 'express'
 import { RoutingConfig } from './routes.config'
 import PropertyController from '../controllers/property.controller'
 import PropertyMiddleware from '../middleware/property.middleware'
