@@ -1,6 +1,6 @@
 
-import propertyService from '../services/property.service'
-import { NextFunction, Request, Response } from 'express'
+import propertyService from '../services/property/property.service'
+import { Request, Response } from 'express'
 
 class PropertyController {
 
@@ -50,7 +50,7 @@ class PropertyController {
         }
     }
 
-    async patchPropertyById(req: Request, res: Response) {
+    async patchPropertyById(req: Request, res: Response) { 
         try {
             await propertyService.patch(req.body.id)
             return res.status(204).send('Property patched correctly')
