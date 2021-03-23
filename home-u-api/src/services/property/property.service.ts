@@ -26,9 +26,9 @@ class PropertyService implements CRUD {
         //TODO
     }
 
-    async patch(property: IProperty) {
-        const id = property.id
-        await Property.findByIdAndUpdate(id, property)
+    async patch(resource: { id: string, patchData: object }) {
+        const {id, patchData} = resource
+        await Property.findByIdAndUpdate(id, {$set: patchData})
     }
 
     async delete(id: string) {
