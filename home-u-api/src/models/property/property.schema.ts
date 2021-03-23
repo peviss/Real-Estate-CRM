@@ -1,4 +1,4 @@
-import mongoose, {Schema, model} from 'mongoose'
+import {Schema, model} from 'mongoose'
 import IProperty from './property.model'
 
 // const AddressSchema: Schema = new Schema({

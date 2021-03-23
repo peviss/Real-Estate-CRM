@@ -22,11 +22,11 @@ class PropertyService implements CRUD {
         return propertyFound
     }
 
-    async update(property: IProperty) {
+    async update(id: string) {
         //TODO
     }
 
-    async patch(property: IProperty) {
+    async patch(id: string) {
         //TODO
     }
 

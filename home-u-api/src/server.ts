@@ -25,7 +25,7 @@ export class Server {
     }
     
     routes(): void {
-        this.app.get('/', (req: Request, res: Response) => res.send('hola'))
+        this.app.get('/', (req: Request, res: Response) => res.send('home-u API v1.0.0'))
         this.routers.push(
             new PropertyRoutes(this.app)
         )
