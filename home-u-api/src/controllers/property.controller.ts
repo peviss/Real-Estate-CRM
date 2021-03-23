@@ -52,7 +52,7 @@ class PropertyController {
 
     async patchPropertyById(req: Request, res: Response) { 
         try {
-            await propertyService.patch(req.body.id)
+            await propertyService.patch(req.body)
             return res.status(204).send('Property patched correctly')
         } catch (error) {
             console.log(`[ERROR] - ${error.message}`)

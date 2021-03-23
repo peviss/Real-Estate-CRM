@@ -22,12 +22,13 @@ class PropertyService implements CRUD {
         return propertyFound
     }
 
-    async update(id: string) {
+    async update(property: IProperty) {
         //TODO
     }
 
-    async patch(id: string) {
-        //TODO
+    async patch(property: IProperty) {
+        const id = property.id
+        await Property.findByIdAndUpdate(id, property)
     }
 
     async delete(id: string) {
