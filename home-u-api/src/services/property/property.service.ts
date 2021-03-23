@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb'
-import { CRUD } from '../interfaces/crud.interface'
-import IProperty from '../models/property.model'
-import Property from '../models/property.schema'
+import { CRUD } from '../../interfaces/crud.interface'
+import IProperty from '../../models/property/property.model'
+import Property from '../../models/property/property.schema'
 
 
 class PropertyService implements CRUD {

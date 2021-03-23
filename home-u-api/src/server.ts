@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
 import {dbConnection} from './config/db'
-import PropertyRoutes from './routes/property.routes'
+import PropertyRoutes from './routes/property/property.routes'
 
 export class Server {
     app: express.Application

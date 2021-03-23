@@ -16,7 +16,7 @@ import {
     sanitizeCity,
     sanitizeZone
 } from './property.sanitizers'
-import propertyService from '../services/property.service'
+import propertyService from '../../services/property/property.service'
 
 
 class PropertyMiddleware {
@@ -39,7 +39,6 @@ class PropertyMiddleware {
     async checkParameters(req: express.Request, res: express.Response, next: express.NextFunction) {
         // set validations array 
         const validations: ValidationChain[] = [
-            query('price.price.$gte').isNumeric().withMessage('should be numeric'),
             query('type').optional().isAlphanumeric()
                 .withMessage('should be alpha'),
             query('rent').optional().isBoolean()
@@ -76,8 +75,7 @@ class PropertyMiddleware {
                 .customSanitizer(() => {
                     sanitizeCity(req)
                 }),
-            query('zone').optional().isAlpha()
-                .withMessage('should be alpha').customSanitizer(() => {
+            query('zone').optional().customSanitizer(() => {
                     sanitizeZone(req)
                 }),
         ]

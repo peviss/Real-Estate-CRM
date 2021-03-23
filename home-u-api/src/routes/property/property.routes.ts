@@ -1,7 +1,7 @@
 import express from 'express'
-import { RoutingConfig } from './routes.config'
-import PropertyController from '../controllers/property.controller'
-import PropertyMiddleware from '../middleware/property.middleware'
+import { RoutingConfig } from '../routes.config'
+import PropertyController from '../../controllers/property.controller'
+import PropertyMiddleware from '../../middleware/property/property.middleware'
 
 export default class PropertyRoutes extends RoutingConfig {
     constructor(app: express.Application) {
