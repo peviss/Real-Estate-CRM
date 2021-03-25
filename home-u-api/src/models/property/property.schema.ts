@@ -74,6 +74,8 @@ import IProperty from './property.model'
 
 const propertySchema: Schema = new Schema({
     ref: {type: String, required: true, unique: true},
+    title: {type: String, required: true},
+    description: {type: String},
     location:{
         address:{
             country: String,
