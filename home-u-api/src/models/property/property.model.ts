@@ -3,7 +3,7 @@ import { Document } from 'mongoose'
 export default interface IProperty extends Document {
     //id: string;
     ref: string;
-    title: string:
+    title: string;
     description: string;
     location: Location;
     operation: Operation;
