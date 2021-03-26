@@ -39,43 +39,42 @@ class PropertyMiddleware {
     async checkParameters(req: express.Request, res: express.Response, next: express.NextFunction) {
         // set validations array 
         const validations: ValidationChain[] = [
-            query('type').optional().isAlphanumeric()
+            query('type').optional().isAlphanumeric().escape()
                 .withMessage('should be alpha'),
-            query('rent').optional().isBoolean()
+            query('rent').optional().isBoolean().escape()
                 .withMessage('should be boolean').customSanitizer(() => {
                     sanitizeRent(req)
                 }),
-            query('sale').optional().isBoolean().withMessage('should be boolean').customSanitizer(() => {
+            query('sale').optional().isBoolean().escape().withMessage('should be boolean').customSanitizer(() => {
                 sanitizeSale(req)
             }),
-            query('auction').optional().isBoolean()
+            query('auction').optional().isBoolean().escape()
                 .withMessage('should be boolean').customSanitizer(() => {
                     sanitizeAuction(req)
                 }),
-            query('vacational').optional().isBoolean()
+            query('vacational').optional().isBoolean().escape()
                 .withMessage('should be boolean').customSanitizer(() => {
                     sanitizeVacational(req)
                 }),
-            query('min_price').optional().isNumeric()
+            query('min_price').optional().isNumeric().escape()
                 .withMessage('should be numeric'),
-            query('max_price').optional().isNumeric()
+            query('max_price').optional().isNumeric().escape()
                 .withMessage('should be numeric').customSanitizer(() => {
                     sanitizePrice(req)
                 }),
-            query('rooms').optional().isNumeric()
+            query('rooms').optional().isNumeric().escape()
                 .withMessage('should be numeric').customSanitizer(() => {
                     sanitizeRooms(req)
                 }),
-            query('baths').optional().isNumeric()
+            query('baths').optional().isNumeric().escape()
                 .withMessage('should be numeric').customSanitizer(() => {
                     sanitizeBaths(req)
                 }),
-            query('city').optional()
-                //.withMessage('should be alpha')
+            query('city').optional().escape()
                 .customSanitizer(() => {
                     sanitizeCity(req)
                 }),
-            query('zone').optional().customSanitizer(() => {
+            query('zone').optional().escape().customSanitizer(() => {
                     sanitizeZone(req)
                 }),
         ]
