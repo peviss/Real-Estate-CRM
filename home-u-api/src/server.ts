@@ -3,6 +3,7 @@ import {RoutingConfig} from './routes/routes.config'
 import dotenv from 'dotenv'
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
+import logger from './util/logger'
 import {dbConnection} from './config/db'
 import PropertyRoutes from './routes/property/property.routes'
 
@@ -37,7 +38,7 @@ export class Server {
 
     start(): void {
         this.app.listen(this.app.get('port'), () =>
-         console.log(`\u001b[1;32m[${new Date(Date.now()).toISOString()}][SERVER] Running on port ${process.env.PORT}`) )
+         logger.info(`Running on port ${process.env.PORT}`) )
     }
 }
 

@@ -12,7 +12,10 @@ export default class PropertyRoutes extends RoutingConfig {
     configureRoutes(): express.Application {
         this.app.route('/properties')
             //.all(PropertyMiddleware.checkParameters)
-            .get(PropertyMiddleware.checkParameters, PropertyController.getProperties)
+            .get(
+                PropertyMiddleware.checkParameters,
+                PropertyController.getProperties
+            )
             .post(PropertyController.createProperty);
 
         this.app.route('/properties/:id')

@@ -1,5 +1,6 @@
 
 import propertyService from '../services/property/property.service'
+import logger from '../util/logger'
 import { Request, Response } from 'express'
 
 class PropertyController {
@@ -9,7 +10,7 @@ class PropertyController {
             await propertyService.create(req.body)
             return res.status(201).send(req.body)
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
             return res.status(400).send({ errors: error.message, info: error })
         }
     }
@@ -22,7 +23,7 @@ class PropertyController {
             const properties = await propertyService.list(parameters)
             return res.status(200).send(properties)
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
             return res.status(404).send({ errors: error.message, info: error })
         }
     }
@@ -34,7 +35,7 @@ class PropertyController {
             return res.json(property)
 
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
             return res.status(404).send('not found')
 
         }
@@ -45,7 +46,7 @@ class PropertyController {
             await propertyService.update(req.body.id)
             return res.status(204).send('Property updated correctly')
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
             return res.status(404).send({ errors: error.message, info: error })
         }
     }
@@ -59,7 +60,7 @@ class PropertyController {
             await propertyService.patch(data)
             return res.status(204).send({message: 'Property patched correctly'})
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
         }
     }
 
@@ -68,7 +69,7 @@ class PropertyController {
             await propertyService.delete(req.params.id)
             return res.status(204).send(`Property with id: ${req.params.id} deleted correctly`)
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            logger.error(error)
             return res.status(400).send({ errors: error.message, info: error })
         }
     }

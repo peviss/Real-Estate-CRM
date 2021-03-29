@@ -5,6 +5,7 @@ export default interface IUser extends Document {
     password: string
     email: string
     phone: string
+
     name: {
         first: string
         last: string
@@ -14,6 +15,7 @@ export default interface IUser extends Document {
         mid: string
         full: string
     }
+    role: string
     createdAt: string
     modifiedAt: string
 }

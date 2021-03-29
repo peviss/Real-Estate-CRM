@@ -1,15 +1,17 @@
 import mongoose from 'mongoose'
+import logger from '../util/logger'
+import { mongoURI } from './secrets'
 
 export const dbConnection = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:27817/properties', {
+        await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
             useFindAndModify: false,
         })
-        console.log(`[${new Date(Date.now()).toISOString()}][SUCCESS] - Database connected `)
+        logger.info("Success connecting DB")
     } catch (error) {
-        console.log(`\u001b[1;31m[${new Date(Date.now()).toISOString()}][ERROR] - Database connection error : ${error.message}`)
+        logger.error(error)
     }
 }
