@@ -16,7 +16,6 @@ class PropertyService implements CRUD {
         return properties
     }
 
-
     async find(id: string) {
         const propertyFound = await Property.findOne({ _id: new ObjectId(id) }).lean()
         return propertyFound

@@ -3,9 +3,19 @@ import { Request, Response } from 'express'
 
 class UserController {
 
-    async createUser(req: Request, res: Response) {
+    async registerUser(req: Request, res: Response) {
         try {
             await userService.create(req.body)
+            return res.status(201).send(req.body)
+        } catch (error) {
+            console.log(`[ERROR] - ${error.message}`)
+            return res.status(400).send({ errors: error.message, info: error })
+        }
+    }
+
+    async loginUser(req: Request, res: Response) {
+        try {
+            await userService.login(req.body.email, req.body.password)
             return res.status(201).send(req.body)
         } catch (error) {
             console.log(`[ERROR] - ${error.message}`)

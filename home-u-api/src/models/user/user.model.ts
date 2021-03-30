@@ -18,6 +18,7 @@ export default interface IUser extends Document {
     role: string
     createdAt: string
     modifiedAt: string
+    authenticate: (candidatePassword: string) => Promise<boolean>
 }
 
 

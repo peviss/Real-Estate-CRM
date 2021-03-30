@@ -14,6 +14,11 @@ class UserService implements CRUD {
         return users
     }
 
+    async login(email: string, password: string) {
+        const userFound = await User.findOne({ email: email}).lean()
+        return userFound
+    }
+
     async find(id: string) {
         const userFound = await User.findOne({ _id: new ObjectId(id) }).lean()
         return userFound
@@ -24,8 +29,8 @@ class UserService implements CRUD {
     }
 
     async patch(resource: { id: string, patchData: object }) {
-        const {id, patchData} = resource
-        await User.findByIdAndUpdate(id, {$set: patchData})
+        const { id, patchData } = resource
+        await User.findByIdAndUpdate(id, { $set: patchData })
     }
 
     async delete(id: string) {
