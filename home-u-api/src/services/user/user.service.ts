@@ -20,7 +20,7 @@ class UserService implements CRUD {
     }
 
     async find(id: string) {
-        const userFound = await User.findOne({ _id: new ObjectId(id) }).lean()
+        const userFound = await User.findOne({ id }).lean()
         return userFound
     }
 
@@ -34,7 +34,7 @@ class UserService implements CRUD {
     }
 
     async delete(id: string) {
-        await User.deleteOne({ _id: new ObjectId(id) }).lean()
+        await User.deleteOne({ id }).lean()
     }
 
 
