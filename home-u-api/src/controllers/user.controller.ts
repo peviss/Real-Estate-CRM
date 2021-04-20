@@ -26,12 +26,9 @@ class UserController {
     async getUsers(req: Request, res: Response) {
         try {
             const parameters = req.query
-            console.log('----controller-----')
-            console.log(req.query)
             const properties = await userService.list(parameters)
             return res.status(200).send(properties)
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
             return res.status(404).send({ errors: error.message, info: error })
         }
     }
@@ -39,11 +36,9 @@ class UserController {
     async getUserById(req: Request, res: Response) {
         try {
             const user = await userService.find(req.params.id)
-            console.log(`[OK] - User with id: ${req.params.id} found`)
             return res.json(user)
 
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
             return res.status(404).send('not found')
 
         }
@@ -54,7 +49,6 @@ class UserController {
             await userService.update(req.body.id)
             return res.status(204).send('User updated correctly')
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
             return res.status(404).send({ errors: error.message, info: error })
         }
     }
@@ -68,7 +62,7 @@ class UserController {
             await userService.patch(data)
             return res.status(204).send({message: 'User patched correctly'})
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
+            return res.status(400).send({ errors: error.message, info: error })
         }
     }
 
