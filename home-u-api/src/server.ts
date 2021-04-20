@@ -6,6 +6,7 @@ import cors from 'cors';
 import logger from './util/logger'
 import {dbConnection} from './config/db'
 import PropertyRoutes from './routes/property/property.routes'
+import UserRoutes from './routes/user/user.routes'
 
 export class Server {
     app: express.Application
@@ -28,7 +29,8 @@ export class Server {
     routes(): void {
         this.app.get('/', (req: Request, res: Response) => res.send('home-u API v1.0.0'))
         this.routers.push(
-            new PropertyRoutes(this.app)
+            new PropertyRoutes(this.app),
+            new UserRoutes(this.app)
         )
     }
 

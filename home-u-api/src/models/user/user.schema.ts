@@ -62,10 +62,12 @@ const userSchema: Schema = new Schema(
             required: true
         },
         createdAt: {
-            default: Date.now()
+            type: String
+            //default: Date.now()
         },
         modifiedAt: {
-            default: Date.now()
+            type: String
+            //default: Date.now()
         },
     }
 )

@@ -1,4 +1,3 @@
-import { ObjectId } from 'mongodb'
 import { CRUD } from '../../interfaces/crud.interface'
 import IUser from '../../models/user/user.model'
 import User from '../../models/user/user.schema'
