@@ -7,16 +7,22 @@ import List from '../components/List/List'
 import Details from '../components/Details/Details'
 import Property from './Property'
 
+const MainPage = () => {
+  return (
+    <>
+      <Search />
+      <List />
+    </>
+  )
+}
+
 const Home = () => {
-    return (
-        <div>
-            <Switch>
-                <Route path='/' exact component={List} />
-                <Route path='/props/:id' component={Property} />
-            </Switch>
-            <Footer />
-        </div>
-    )
+  return (
+    <Switch>
+      <Route path='/' exact component={MainPage} />
+      <Route path='/props/:id' render={(props) => <Property {...props} />} />
+    </Switch>
+  )
 }
 
 export default Home

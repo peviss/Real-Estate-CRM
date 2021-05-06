@@ -1,8 +1,10 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express'
+import { NativeError, Document as MongoDocument } from 'mongoose'
 import { SESSION_SECRET } from '../../config/secrets'
 import { USER_ROLES } from '../../config/settings'
 import logger from '../../util/logger'
 import * as jwt from 'jsonwebtoken'
+import User from '../../models/user/user.schema'
 
 class UserMiddleware {
 
@@ -46,7 +48,13 @@ class UserMiddleware {
 
 
     async validateExistence(req: Request, res: Response, next: NextFunction) {
-
+        const email = req.body.email
+        User.findOne({ email: email }, (err: NativeError, doc: MongoDocument) => {
+            if (err) {
+                res.sendStatus(404)
+            }
+            res.sendStatus(201)
+        }).lean()
     }
 
 }

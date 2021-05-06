@@ -1,5 +1,5 @@
 import userService from '../services/user/user.service'
-import { Request, Response } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
 class UserController {
 
@@ -12,19 +12,17 @@ class UserController {
         }
     }
 
-    async loginUser(req: Request, res: Response) {
+    async loginUser(req: Request, res: Response, next: NextFunction) {
         try {
-            await userService.login(req.body.email, req.body.password)
-            return res.status(201).send(req.body)
+            await userService.auth(req, res, next)
         } catch (error) {
-            return res.status(400).send({ errors: error.message, info: error })
+            res.status(400).send({ errors: error.message, info: error })
         }
     }
 
     async getUsers(req: Request, res: Response) {
         try {
-            const parameters = req.query
-            const properties = await userService.list(parameters)
+            const properties = await userService.list(req.query)
             return res.status(200).send(properties)
         } catch (error) {
             return res.status(404).send({ errors: error.message, info: error })
@@ -69,7 +67,6 @@ class UserController {
             await userService.delete(req.params.id)
             return res.status(204).send(`User with id: ${req.params.id} deleted correctly`)
         } catch (error) {
-            console.log(`[ERROR] - ${error.message}`)
             return res.status(400).send({ errors: error.message, info: error })
         }
     }

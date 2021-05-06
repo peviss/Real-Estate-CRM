@@ -20,7 +20,7 @@ export type UserDocument = Document<IUser> & {
     role: string
     createdAt: string
     modifiedAt: string
-    authenticate: (candidatePassword: string, callback: (err:any, isMatch: any) => void) => Promise<boolean>
+    authenticate: (candidatePassword: string) => Promise<boolean>
 };
 
 
@@ -62,12 +62,12 @@ const userSchema: Schema = new Schema(
             required: true
         },
         createdAt: {
-            type: String
+            type: String,
             //default: Date.now()
         },
         modifiedAt: {
-            type: String
-            //default: Date.now()
+            type: String,
+            default: Date.now()
         },
     }
 )
@@ -85,8 +85,8 @@ userSchema.pre("save", async function (next: Function): Promise<void> {
 })
 
 userSchema.methods = {
-    authenticate: async function (pwd: string, cb: (err:any, isMatch: any) => void): Promise<boolean> {
-        return bcrypt.compare(pwd, (this as UserDocument).password)
+    authenticate: async function(candidatePassword: string): Promise<boolean> {
+        return bcrypt.compare(candidatePassword, (this as UserDocument).password);
     }
 }
 

@@ -5,6 +5,7 @@ import * as bodyParser from 'body-parser';
 import cors from 'cors';
 import logger from './util/logger'
 import {dbConnection} from './config/db'
+import {setupPassport} from './config/passport'
 import PropertyRoutes from './routes/property/property.routes'
 import UserRoutes from './routes/user/user.routes'
 
@@ -19,11 +20,11 @@ export class Server {
     }
     config(): void {
         dotenv.config()
-        this.app.use(cors())
+        this.app.use(cors({origin:'http://127.0.0.1'}))
         this.database()
         this.app.set('port', process.env.PORT || 3001)
         this.app.use(bodyParser.json())
-        //this.app.use(cors())
+        setupPassport(this.app)
     }
     
     routes(): void {

@@ -112,14 +112,7 @@ function App() {
         <Route path='/' component={Home}/>
         <Route path='/about' component={About}/> 
       </Switch>
-      
-      {/* <Header />
-      <Search />
-      <Switch>
-        <Route path='/' exact component={List} />
-        <Route path='/props/:id' component={Details} />
-      </Switch>
-      <Footer /> */}
+      <Footer/>
     </div>
   );
 }

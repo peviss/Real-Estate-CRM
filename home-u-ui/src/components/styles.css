@@ -38,7 +38,7 @@ header {
   padding: 0.5rem 2rem 0.5rem 2rem;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.09);
   margin-bottom: 100px;
-  background-color: rgba(255, 255, 255,0.95);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 
@@ -46,6 +46,14 @@ a {
   text-decoration: none;
   color: #000;
 }
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 7em;
+  justify-content: center;
+}
+
 
 .nav-btn {
   padding: 10px 25px;
@@ -78,17 +86,17 @@ a {
   transform: scale(1.1);
 }
 
-
-.main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 2.5rem;
-}
-
 h1 {
   font-family: 'Raleway';
   font-size: 22px;
   font-weight: 700;
+}
+
+nav a,
+button {
+  font-family: 'Varela Round';
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .card-title h2 {
@@ -105,16 +113,6 @@ h1 {
   color: var(--color-secondary);
   padding-left: 0.5rem;
 }
-
-nav a,
-button {
-  font-family: 'Varela Round';
-  font-size: 18px;
-  font-weight: 400;
-}
-
-
-
 
 
 .cards {
@@ -207,14 +205,17 @@ button {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 1rem 0;
+  min-height: 5em;
+  max-height: 5em;
   color: Black;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
-}
-
-.card-text {
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  /* give the beautiful '...' effect */
 }
 
 .made-by {
@@ -264,17 +265,18 @@ button {
 }
 
 
-.card-specs div > span {
+.card-specs div>span {
   padding: 0 .2rem 0 .2rem
 }
 
 .material-icons-outlined {
-  color: var(--color-accent)
+  color: var(--color-accent);
 }
 
 .logo-md {
   font-size: 30px;
   transition: transform .2s ease-in-out;
+  padding-left: 15px;
 }
 
 .logo-md:hover {
@@ -284,8 +286,8 @@ button {
 
 }
 
-.logo-md-clicked{
-  color:red;
+.logo-md-clicked {
+  color: red;
   font-size: 30px;
 }
 
@@ -298,6 +300,17 @@ button {
 
 }
 
+.video-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.video-background {
+  width: 100%;
+
+
+}
 
 .search-container {
   position: relative;
@@ -305,62 +318,60 @@ button {
   background-color: var(--color-accent);
 }
 
-.search-body{
+.search-body {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-content: center;
   width: 100%;
   height: 100px;
   position: absolute;
   top: 50%;
   margin-top: -25px;
-  
-} 
 
-.search-body input{
+}
+
+.search-body input {
   height: 4rem;
   width: 50vw;
   border-style: none;
   box-sizing: border-box;
-  padding:1rem;
+  padding: 1rem;
   border: 1px solid #272727;
   font-size: 1.2rem;
 }
 
 @media (max-width: 40rem) {
-  .search-body input{
+  .search-body input {
     width: 80vw;
   }
 }
 
-.search-body ul{
+.search-body ul {
   background-color: white;
   width: 100%;
-  list-style-type:none;
+  list-style-type: none;
   margin: 0;
   padding: 0 0 0.5rem 0;
   text-align: left;
   border-radius: 0 0 10px 10px;
 }
 
-.search-body li{
+.search-body li {
   display: flex;
   flex-direction: row;
-  align-items:center ;
-  padding:0.5rem 1rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
   font-size: 1.2rem;
   border-top: 1px solid;
 }
 
 
-
-
-
 .load-more {
-  padding-bottom: 2.5rem;;
+  padding-bottom: 2.5rem;
+  ;
   height: 5rem;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -372,6 +383,139 @@ button {
   background-color: #000;
 }
 
-.load-more button:hover{
+.load-more button:hover {
   background-color: var(--color-accent);
 }
+
+
+/*
+
+################
+
+PORTRAIT GALLERY
+
+################
+
+*/
+
+/* #portait-gallery {
+  position: relative;
+} */
+
+.portrait-wrapper {
+  position: relative;
+}
+
+.portrait-main-container {
+  display: flex;
+  flex-direction: row;
+  height: 25vw;
+  /* width: 90vw; */
+  flex-wrap: no-wrap;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0 1em 0 1em;
+  /* position: absolute !important; */
+
+}
+
+.portrait-show-more-btn {
+  position: absolute !important;
+  z-index: 3 !important;
+  bottom: 55px !important;
+  left: 20px !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  margin: 0px !important;
+  position: relative !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  width: auto !important;
+  touch-action: manipulation !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  outline: none !important;
+  padding: 10px 20px !important;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  border-color: rgb(34, 34, 34) !important;
+  background: rgb(255, 255, 255) !important;
+  color: rgb(34, 34, 34) !important;
+}
+
+.portrait-left-container {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  /* border-style: solid;
+  border-color: cyan; */
+
+}
+
+
+.portrait-cl-container-right {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+  padding-left: 8px;
+  /* border-style: solid;
+  border-color: cyan; */
+
+}
+
+.portrait-image {
+  height: 100%;
+  width: 100%;
+}
+
+.portrait-image>img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+
+}
+
+.portrait-image-top {
+  height: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+
+.portrait-image-bottom {
+  height: 50%;
+  margin-top: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.portrait-image>img,
+.portrait-image-top>img,
+.portrait-image-bottom>img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: center;
+
+}
+
+.portrait-image>img:hover,
+.portrait-image-top>img:hover,
+.portrait-image-bottom>img:hover {
+  transition: all 0.8s;
+  opacity: 0.7;
+  overflow: hidden;
+
+}
+
