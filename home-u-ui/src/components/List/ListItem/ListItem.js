@@ -45,12 +45,13 @@ const ListItem = ({ data: { id, title, address, operation, price, beds, baths, s
 
               </div>
               <div className="card-details">
-                <div>
+                <div className="card-details-location">
                   <i class="material-icons-outlined">room</i>
                   <span>{address || <Skeleton width={100} />}</span>
                 </div>
-
-                <h2>{`${currency}${price}` || <Skeleton width={100} />}</h2>
+                <div className="card-price">
+                  <h2>{`${currency}${price}` || <Skeleton width={100} />}</h2>
+                </div>
               </div>
               <div className="card-specs">
                 <div>

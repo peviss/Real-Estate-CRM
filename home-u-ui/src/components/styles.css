@@ -20,7 +20,7 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  background: rgb(240, 240, 240);
+  background: rgb(250, 250, 250);
   scroll-padding-top: 100px;
 
 }
@@ -101,17 +101,23 @@ button {
 
 .card-title h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   margin: 0 !important;
 }
 
 .card-details span {
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400px;
   color: var(--color-secondary);
   padding-left: 0.5rem;
+}
+
+.card-details-location {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 
@@ -239,6 +245,10 @@ button {
 .card-body h2:hover {
   transition: 0.2s;
   color: var(--color-accent);
+}
+
+.card-price h2{
+  font-size: 20px;
 }
 
 
@@ -414,7 +424,7 @@ PORTRAIT GALLERY
   flex-wrap: no-wrap;
   border-radius: 15px;
   overflow: hidden;
-  margin: 0 1em 0 1em;
+  
   /* position: absolute !important; */
 
 }
