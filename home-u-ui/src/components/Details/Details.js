@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { formatAttr, formatPrice, formatCurrency } from '../../api/utils/formaters'
 import { useParams } from 'react-router-dom'
 import PortraitGallery from './PortraitGallery'
+import PhotoGallery from './PhotoGallery'
 import axios from 'axios'
 import Skeleton from 'react-loading-skeleton'
 import SkeletonPortrait from '../Skeleton/SkeletonPortrait'
@@ -61,7 +62,7 @@ const Details = () => {
   }, []);
 
   const handleSeeMore = () => {
-    
+
   }
 
   const renderOnDataLoaded = () => {
@@ -73,13 +74,13 @@ const Details = () => {
             {`${data.city}, ${data.state}, ${data.country}`}
           </p>
         </div>
-        <PortraitGallery pics={data.pictures}/>
+        <PortraitGallery pics={data.pictures} />
         <div className="details-body">
           <div class="details-left">
             <div className="details-price">
               <h2>{data.price}</h2>
             </div>
-            <div className="details-amenities-container">
+            <div className="details-section-container">
               <div class="details-amenities-header">
                 <h2>Amenities</h2>
               </div>
@@ -90,7 +91,7 @@ const Details = () => {
                 <li>Balcon</li>
               </ul>
             </div>
-            <div className="details-amenities-container">
+            <div className="details-section-container">
               <div class="details-amenities-header">
                 <h2>Description</h2>
               </div>
@@ -99,21 +100,42 @@ const Details = () => {
               </p>
             </div>
           </div>
+
           <Contact title={data.title} />
 
         </div>
 
+        <div className="details-section-container">
+          <div class="details-amenities-header">
+            <h2>Location</h2>
+          </div>
+          <p>
+            {`${data.city}, ${data.state}, ${data.country}`}
+          </p>
+        </div>
+
         <div ref={mapRef} className="details-map">
-          <iframe
+          {/* <iframe
             width="100%"
             height="400"
             frameborder="0"
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=-34.9632342,-54.9439981+()&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=-34.9632342,-54.9439981&t=&z=16&ie=UTF8&iwloc=B&output=embed">
+          </iframe> */}
+
+          <iframe
+            width="100%"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src={`https://maps.google.com/maps?width=100%25&height=600&hl=en&q=${data.city}, ${data.state}, ${data.country}&t=&z=14&ie=UTF8&iwloc=B&output=embed`}>
           </iframe>
         </div>
+        <PhotoGallery pictures={data.pictures} />
       </div>
     )
   }
@@ -131,15 +153,8 @@ const Details = () => {
   return (
     <div className="main">
       {
-        loading ? (
-          renderOnDataNotLoaded()
-        ) : (
-            renderOnDataLoaded()
-          )
-
+        loading ? renderOnDataNotLoaded() : renderOnDataLoaded()
       }
-
-
     </div>
   )
 }

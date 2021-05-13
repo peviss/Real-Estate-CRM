@@ -500,7 +500,6 @@ PORTRAIT GALLERY
   align-items: center
 }
 
-
 .portrait-image-bottom {
   height: 50%;
   margin-top: 8px;
@@ -517,15 +516,17 @@ PORTRAIT GALLERY
   width: 100%;
   object-fit: cover;
   vertical-align: center;
+  transition: transform .6s ease-in-out;
+
 
 }
 
 .portrait-image>img:hover,
 .portrait-image-top>img:hover,
 .portrait-image-bottom>img:hover {
-  transition: all 0.8s;
-  opacity: 0.7;
   overflow: hidden;
-
+  transform-origin: center center;
+  transition: transform .6s ease-in-out;
+  transform: scale(1.1);
 }
 

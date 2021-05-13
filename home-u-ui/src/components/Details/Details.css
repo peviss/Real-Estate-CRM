@@ -1,7 +1,14 @@
+.fancybox-content img{
+  border-radius: 10px;
+  transform: scale(1.4);
+
+
+}
+
 .details-container{
   display: flex;
   flex-direction:column;
-  margin: 0 5rem 0 5rem;
+  margin: 0 3rem 0 3rem;
 
 }
 
@@ -43,7 +50,7 @@
 }
 
 .details-contact input:hover{
-  border-color:aqua
+  border-color:rgb(9, 173, 223)
 }
 
 .details-contact button{
@@ -53,7 +60,7 @@
   margin-top: 2em;
   color: #fff;
   width: 100%;
-  background-color: #000;
+  background-color:rgb(9, 173, 223);
 }
 
 .details-price{
