@@ -17,8 +17,9 @@ const Details = () => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const mapRef = useRef(null)
+  const galleryRef = useRef(null)
 
-  const executeScroll = () => mapRef.current.scrollIntoView({ behavior: "smooth" })
+  const scrollToMap = () => mapRef.current.scrollIntoView({ behavior: "smooth" })
 
   const { id } = useParams()
 
@@ -61,16 +62,12 @@ const Details = () => {
 
   }, []);
 
-  const handleSeeMore = () => {
-
-  }
-
   const renderOnDataLoaded = () => {
     return (
       <div className="details-container">
         <div className="details-header">
           <h1>{data.title}</h1>
-          <p onClick={executeScroll}>
+          <p onClick={scrollToMap}>
             {`${data.city}, ${data.state}, ${data.country}`}
           </p>
         </div>
@@ -105,8 +102,8 @@ const Details = () => {
 
         </div>
 
-        <div className="details-section-container">
-          <div class="details-amenities-header">
+        <div ref={mapRef} className="details-section-container">
+          <div  class="details-amenities-header">
             <h2>Location</h2>
           </div>
           <p>
@@ -114,7 +111,7 @@ const Details = () => {
           </p>
         </div>
 
-        <div ref={mapRef} className="details-map">
+        <div className="details-map">
           {/* <iframe
             width="100%"
             height="400"
@@ -127,7 +124,7 @@ const Details = () => {
 
           <iframe
             width="100%"
-            height="600"
+            height="400"
             frameborder="0"
             scrolling="no"
             marginheight="0"
@@ -135,7 +132,6 @@ const Details = () => {
             src={`https://maps.google.com/maps?width=100%25&height=600&hl=en&q=${data.city}, ${data.state}, ${data.country}&t=&z=14&ie=UTF8&iwloc=B&output=embed`}>
           </iframe>
         </div>
-        <PhotoGallery pictures={data.pictures} />
       </div>
     )
   }
@@ -143,6 +139,7 @@ const Details = () => {
   const renderOnDataNotLoaded = () => {
     return (
       <>
+        <Skeleton duration={1} height={'100%'} width={'60%'} />
         <Skeleton duration={1} height={'100%'} width={'60%'} />
         <SkeletonPortrait />
         <Skeleton duration={1} height={'100%'} width={'60%'} />

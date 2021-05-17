@@ -67,3 +67,30 @@
   align-items: flex-end;
 }
 
+@media (max-width: 40rem) {
+  .details-body {
+    flex-direction: column;
+  }
+  .details-contact{
+    width: 100%;
+  }
+}
+
+@media (max-width: 56rem) {
+  .details-body {
+    flex-direction: column;
+  }
+  .details-contact{
+    width: 100%;
+  }
+
+
+}
+
+.photo-gallery-container ul{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}

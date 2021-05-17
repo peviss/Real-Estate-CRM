@@ -324,8 +324,11 @@ button {
 
 .search-container {
   position: relative;
-  height: 600px;
-  background-color: var(--color-accent);
+  height: 100vh;
+  /* background-color: var(--color-accent); */
+  background-image: url('../assets/img/surface-shifting@3000x2000px.jpg') ;
+  background-position-y: 239;
+  background-repeat: no-repeat;
 }
 
 .search-body {
@@ -419,7 +422,7 @@ PORTRAIT GALLERY
 .portrait-main-container {
   display: flex;
   flex-direction: row;
-  height: 25vw;
+  height: 25rem;
   /* width: 90vw; */
   flex-wrap: no-wrap;
   border-radius: 15px;
