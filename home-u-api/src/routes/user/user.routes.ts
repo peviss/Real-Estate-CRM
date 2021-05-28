@@ -15,21 +15,23 @@ export default class UserRoutes extends RoutingConfig {
       .get(
         UserController.getUsers
       )
+
     this.app.route('/login')
       .post(
         UserController.loginUser
       )
+
     this.app.route('/register')
       .post(
+        UserMiddleware.validateExistence,
         UserController.registerUser
       )
-    this.app.route('/admin')
+      
+    this.app.route('/account')
       .get(
         UserMiddleware.isAuthenticated,
         UserController.getUserById
       )
-
-
 
     this.app.route('/user/:id')
       .all()

@@ -1,7 +1,7 @@
-import express, {Router} from 'express'
+import express, { Router } from 'express'
 
 export abstract class RoutingConfig {
-    app:express.Application
+    app: express.Application
     name: string
 
     constructor(app: express.Application, name: string) {
@@ -19,6 +19,6 @@ export abstract class RoutingConfig {
 //     constructor(router: Router) {
 //         this.router = router
 //     }
-    
+
 //     abstract registerRouting(): void
 // }
