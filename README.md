@@ -5,6 +5,7 @@
 - Node
 - Express
 - Typescript
+- MongoDB
 
 ## UI
 - React
